@@ -15,16 +15,21 @@ const images = [
 
 const galleryEl = document.querySelector(".gallery");
 
-const imgEl = images.map(({ url, alt }) => {
-  const img = document.createElement("img");
-  img.setAttribute("src", url);
-  img.setAttribute("alt", alt);
-  img.setAttribute("width", 480);
-  img.style.marginBottom = "20px";
-  img.style.display = "flex";
-  img.style.borderRadius = "10px";
+const imgEl = images
+  .map(({ url, alt }) => {
+    return `<li class="item"><img  src="${url}" alt="${alt}"></li>`;
+  })
+  .join("");
 
-  return img;
+galleryEl.insertAdjacentHTML("beforeend", imgEl);
+
+const imgRef = galleryEl.querySelectorAll(".item");
+
+[...imgRef].map((elem) => {
+  elem.querySelector("img").style.height = "100px";
+  elem.querySelector("img").style.borderRadius = "10px";
+  elem.querySelector("img").style.marginRight = "20px";
 });
 
-galleryEl.append(...imgEl);
+galleryEl.style.display = "flex";
+galleryEl.style.listStyle = "none";
