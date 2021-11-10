@@ -1,10 +1,12 @@
 const inputLength = document.querySelector("#validation-input");
 
 inputLength.addEventListener("blur", () => {
+  const forActionsWhithClass = inputLength.classList;
+
   if (inputLength.value.length < inputLength.dataset.length) {
-    inputLength.classList.add("invalid");
+    forActionsWhithClass.add("invalid");
   } else {
-    inputLength.classList.remove("invalid");
-    inputLength.classList.add("valid");
+    forActionsWhithClass.remove("invalid");
+    forActionsWhithClass.add("valid");
   }
 });

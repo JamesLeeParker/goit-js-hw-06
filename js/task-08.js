@@ -10,7 +10,7 @@ function getSubmit(event) {
   event.preventDefault();
 
   if (mailElem.value === "" || passElem.value === "")
-    alert("Все поля должны быть заполнены!");
+    return alert("Все поля должны быть заполнены!");
 
   const formElem = event.currentTarget.elements;
 
@@ -19,9 +19,5 @@ function getSubmit(event) {
 
   console.log("Почта:", mail, "  Пароль:", pass);
 
-  //   if (mailElem.value || passElem.value) {
-  //     mailElem.value = "";
-  //     passElem.value = "";
-  //   }
   form.reset();
 }
